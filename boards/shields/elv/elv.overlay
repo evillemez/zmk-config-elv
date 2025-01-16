@@ -5,7 +5,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
-        zephyr,display = &nice_view;
+        zephyr,display = &nice_view_display;
     };
 
     default_transform: keymap_transform_0 {
@@ -47,13 +47,10 @@
             ;
     };
 
-    nice_view: nice_view {
+    nice_view_display: nice_view_display {
         compatible = "nice,view";
         status = "okay";
         spi-max-frequency = <4000000>;
-        cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-        reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
-        dc-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
         width = <128>;
         height = <32>;
     };
@@ -66,10 +63,5 @@
     sck-pin = <8>;    // SCL - P008
     mosi-pin = <6>;   // SDA - P006
     miso-pin = <23>;  // unused but required
-
-    nice_view: nice_view@0 {
-        status = "okay";
-        compatible = "nice,view";
-        reg = <0>;
-    };
+    cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
 };
