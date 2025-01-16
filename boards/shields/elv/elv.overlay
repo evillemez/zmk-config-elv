@@ -48,12 +48,20 @@
             ;
     };
 
+    nice_view_spi: &spi0 {
+        compatible = "nordic,nrf-spim";
+        sck-pin = <8>;    // SCL - P008
+        mosi-pin = <6>;   // SDA - P006
+        miso-pin = <23>;  // unused but required
+        cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+    };
+
     nice_view: nice_view {
         compatible = "nice,view";
         label = "NICE_VIEW";
-        spi-max-frequency = <4000000>;
-        cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;      // P017
-        reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;    // SCL - P008
-        dc-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;       // SDA - P006
+        bus = <&nice_view_spi>;
+        cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+        reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+        dc-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
     };
 };
