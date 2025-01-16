@@ -22,7 +22,6 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         diode-direction = "col2row";
 
         row-gpios
@@ -48,7 +47,8 @@
             ;
     };
 
-    nice_view_spi: spi0 {
+    nice_view_spi: &spi0 {
+        reg = <0x40003000 0x1000>;
         compatible = "nordic,nrf-spim";
         status = "okay";
         sck-pin = <8>;    // SCL - P008
@@ -60,7 +60,6 @@
     nice_view: nice_view {
         compatible = "nice,view";
         status = "okay";
-        label = "NICE_VIEW";
         bus = <&nice_view_spi>;
         cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
         reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
