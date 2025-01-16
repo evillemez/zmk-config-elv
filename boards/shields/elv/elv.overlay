@@ -39,17 +39,18 @@
             , <&gpio1 15 GPIO_ACTIVE_HIGH> // P115
             , <&gpio0 20 GPIO_ACTIVE_HIGH> // P020
             , <&gpio0 22 GPIO_ACTIVE_HIGH> // P022
-            , <&gpio0 22 GPIO_ACTIVE_HIGH> // P022
-            , <&gpio0 20 GPIO_ACTIVE_HIGH> // P020
-            , <&gpio1 15 GPIO_ACTIVE_HIGH> // P115
-            , <&gpio0 2  GPIO_ACTIVE_HIGH> // P002
-            , <&gpio0 29 GPIO_ACTIVE_HIGH> // P029
-            , <&gpio0 31 GPIO_ACTIVE_HIGH> // P031
+            , <&gpio0 22 GPIO_ACTIVE_HIGH> // P022 (mirrored)
+            , <&gpio0 20 GPIO_ACTIVE_HIGH> // P020 (mirrored)
+            , <&gpio1 15 GPIO_ACTIVE_HIGH> // P115 (mirrored)
+            , <&gpio0 2  GPIO_ACTIVE_HIGH> // P002 (mirrored)
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> // P029 (mirrored)
+            , <&gpio0 31 GPIO_ACTIVE_HIGH> // P031 (mirrored)
             ;
     };
 
-    nice_view_spi: &spi0 {
+    nice_view_spi: spi0 {
         compatible = "nordic,nrf-spim";
+        status = "okay";
         sck-pin = <8>;    // SCL - P008
         mosi-pin = <6>;   // SDA - P006
         miso-pin = <23>;  // unused but required
@@ -58,6 +59,7 @@
 
     nice_view: nice_view {
         compatible = "nice,view";
+        status = "okay";
         label = "NICE_VIEW";
         bus = <&nice_view_spi>;
         cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
