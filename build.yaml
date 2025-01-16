@@ -17,6 +17,8 @@
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
 #     artifact-name: corne_left_with_studio
 #
----
-include:
-  - board: planck_rev6
+
+# This file generates the GitHub Actions matrix
+# For most keyboards, you'll want at least one board to be "nice_nano_v2"
+board: nice_nano_v2
+shield: elv

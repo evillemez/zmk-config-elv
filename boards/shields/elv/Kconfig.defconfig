@@ -1,0 +1,9 @@
+if SHIELD_ELV
+
+config ZMK_KEYBOARD_NAME
+    default "ELV"
+
+config ZMK_DISPLAY
+    default y
+
+endif

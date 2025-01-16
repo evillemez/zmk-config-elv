@@ -1,0 +1,2 @@
+config SHIELD_ELV
+    def_bool y
