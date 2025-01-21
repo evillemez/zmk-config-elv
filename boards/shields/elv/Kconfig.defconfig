@@ -3,7 +3,8 @@ if SHIELD_ELV
 config ZMK_KEYBOARD_NAME
     default "ELV"
 
-if ZMK_DISPLAY
+config ZMK_DISPLAY
+    default y
 
 config I2C
     default n
@@ -11,12 +12,4 @@ config I2C
 config SPI
     default y
 
-config IL0323
-    default y
-
-config ZMK_DISPLAY_STATUS_SCREEN_BUILT_IN
-    default y
-
-endif # ZMK_DISPLAY
-
-endif # SHIELD_ELV
+endif
