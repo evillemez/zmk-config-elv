@@ -1,6 +1,10 @@
-# Wiring description
+# Iteration with Claude
 
-This was created for to help Claude understand the wiring, so it could help me write the correct overlay and keymap files.
+I used Claude at various stages to write, debug, and test the firmware.  I kept notes here for specific things I produced to give Claude extra info on issues I was having.
+
+## Wiring 
+
+This was created for helping Claude understand the wiring, so it could help me write the correct overlay and keymap files.
 
 ```
 nice!nano pin -> keyboard function
@@ -31,3 +35,16 @@ SDA -> P0.06
 CS -> P0.17
 ```
 
+## Testing matrix
+
+```
+ESC [✓] Q[✗] W[✗] E[✓] R[✓] T[✓]
+TAB [✗] A[✓] S[✓] D[✓] F[✗] G[✗]
+SHIFT[✓] Z[✓] X[✓] C[✗] V[✓] B[✓]
+CTRL[✓] GUI[✓] ALT[✓] L1[✓] L2[✓] SPACE[✓]
+
+Y[✓] U[✓] I[✓] O[✗] P[✓] BSPC[✓]
+H[✓] J[✓] K[✓] L[✓] ;[✓] '[✓]
+N[✗] M[✓] ,[✓] .[✓] /[✓] SHIFT[✓]
+RET[✓] L3[✗] ←[✓] ↓[✓] ↑[✓] →[✓]
+```
